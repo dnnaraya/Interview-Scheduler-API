@@ -1,0 +1,16 @@
+
+{% if selected_interview %}
+    <h2>Interview Details:</h2>
+    <p>Client: {{client}}</p>
+    <p>Date: {{scheduled_date}}</p>
+    <p>IST Time: {{scheduled_time}}</p>
+
+    <p>Please provide your confirmation:</p>
+
+    <form method="POST" action="{% url 'accept' %}">
+        {% csrf_token %}
+        <button style='margin-right : 15px;' type="submit" name="accept_obj" value= "{{ selected_interview.id }}">Accept</button>
+        <button style='margin-right : 15px;' type="submit" formaction="{% url 'reschedule' %}" name="reschedule_obj" value= "{{ selected_interview.id }}">Reschedule</button>
+    </form>
+        
+{% endif %}

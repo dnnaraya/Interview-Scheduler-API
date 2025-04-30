@@ -1,0 +1,9 @@
+<h2> Schedule an Interview:</h2>
+
+<form method="post" action="/client/">
+    {% csrf_token %}
+    
+    {{ form.as_p}}
+    <button type="submit">Schedule</button>
+</form>
+

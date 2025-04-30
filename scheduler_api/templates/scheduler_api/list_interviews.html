@@ -1,0 +1,14 @@
+<form method="post" action="/candidate/">
+    {% csrf_token %}
+    <h2>Upcoming Interviews schedule: Select an Interview:</h2>
+    {% for interview in interviews %}
+        <div>
+            <label for="interview_{{ interview.id }}">
+                <input type="radio" id="interview_{{ interview.id }}" name="object_id" value="{{ interview.id }}">
+                {{ interview }}
+            </label>
+        </div>
+    {% endfor %}
+    <br/>
+    <button type="submit" >Submit</button>
+</form>
